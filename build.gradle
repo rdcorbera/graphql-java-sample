@@ -14,6 +14,10 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.graphql-java:graphql-java:16.2' // NEW
+	implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2' // NEW
+	implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0' // NEW
+	implementation 'com.google.guava:guava:29.0-jre' // NEW
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
