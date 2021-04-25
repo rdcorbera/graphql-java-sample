@@ -2,8 +2,9 @@ package com.rdcorbera.graphqljavasample.application;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+import com.rdcorbera.graphqljavasample.application.resolvers.AuthorResolver;
+import com.rdcorbera.graphqljavasample.application.resolvers.BookResolver;
 import graphql.GraphQL;
-import graphql.schema.DataFetcher;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Map;
 
 import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 
@@ -24,7 +24,9 @@ import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 public class GraphQLProvider {
 
   @Autowired
-  GraphQLDataFetchers graphQLDataFetchers;
+  private AuthorResolver authorResolver;
+  @Autowired
+  private BookResolver bookResolver;
 
   private GraphQL graphQL;
 
@@ -51,11 +53,9 @@ public class GraphQLProvider {
   private RuntimeWiring buildWiring() {
     return RuntimeWiring.newRuntimeWiring()
         .type(newTypeWiring("Query")
-            .dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher()))
+            .dataFetcher("bookById", bookResolver.getBookByIdDataFetcher()))
         .type(newTypeWiring("Book")
-            .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher())
-            // This line is new: we need to register the additional DataFetcher
-            .dataFetcher("pageCount", graphQLDataFetchers.getPageCountDataFetcher()))
+            .dataFetcher("author", authorResolver.getAuthorDataFetcher()))
         .build();
   }
 }

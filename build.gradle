@@ -14,11 +14,19 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.graphql-java:graphql-java:16.2' // NEW
 	implementation 'com.graphql-java:graphiql-spring-boot-starter:5.0.2' // NEW
 	implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0' // NEW
 	implementation 'com.google.guava:guava:29.0-jre' // NEW
+	implementation 'com.h2database:h2' // NEW
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.20'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 test {
