@@ -4,6 +4,7 @@ CREATE TABLE books (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(250) NOT NULL,
   page_count INT NOT NULL,
+  publication_date DATE NOT NULL,
   author_id INT NOT NULL
 );
 
@@ -21,7 +22,7 @@ INSERT INTO authors (first_name, last_name) VALUES
   ('Herman', 'Melville'),
   ('Anne', 'Rice');
 
-INSERT INTO books (name, page_count, author_id) VALUES
-  ('Harry Potter and the Philosopher Stone', 223, 1),
-  ('Moby Dick', 635, 2),
-  ('Interview with the vampire', 371, 3);
+INSERT INTO books (name, publication_date, page_count, author_id) VALUES
+  ('Harry Potter and the Philosopher Stone', '1990-02-23', 223, 1),
+  ('Moby Dick', '1995-02-23', 635, 2),
+  ('Interview with the vampire', '1998-02-23', 371, 3);
