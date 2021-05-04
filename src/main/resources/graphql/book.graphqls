@@ -1,0 +1,9 @@
+#directive @fetch(from : String!) on FIELD_DEFINITION
+
+type Book {
+    id: ID
+    name: String
+    #totalPages: Int @fetch(from:"pageCount")
+    publicationDate: String
+    author: Author
+}
