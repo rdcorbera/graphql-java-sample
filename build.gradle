@@ -18,6 +18,7 @@ dependencies {
 	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:11.0.0'
 	implementation 'com.h2database:h2'
 	runtimeOnly 'com.graphql-java-kickstart:playground-spring-boot-starter:11.0.0'
+	runtimeOnly 'com.graphql-java-kickstart:voyager-spring-boot-starter:11.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:11.0.0'
 

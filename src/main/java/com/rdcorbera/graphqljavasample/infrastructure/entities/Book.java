@@ -15,7 +15,8 @@ public class Book {
   private String name;
   private int pageCount;
   private LocalDate publicationDate;
+  private int authorId;
 
-  @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-  private Author author;
+  //@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  //private Author author;
 }
